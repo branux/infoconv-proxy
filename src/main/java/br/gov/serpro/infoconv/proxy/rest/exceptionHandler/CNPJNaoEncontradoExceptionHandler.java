@@ -6,13 +6,13 @@ import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
-import br.gov.serpro.infoconv.proxy.exception.CpfNaoEncontradoException;
+import br.gov.serpro.infoconv.proxy.exception.CNPJNaoEncontradoException;
 
 @Provider
-public class CpfNaoEncontradoExceptionHandler implements ExceptionMapper<CpfNaoEncontradoException> {
+public class CNPJNaoEncontradoExceptionHandler implements ExceptionMapper<CNPJNaoEncontradoException> {
 
 	@Override
-	public Response toResponse(final CpfNaoEncontradoException exception) {
+	public Response toResponse(final CNPJNaoEncontradoException exception) {
 		return Response.status(Status.NOT_FOUND)
 				.entity(new ErrorMessage(exception.getMessage()))
 				.type(MediaType.APPLICATION_JSON)
@@ -22,9 +22,11 @@ public class CpfNaoEncontradoExceptionHandler implements ExceptionMapper<CpfNaoE
 	
 	public class ErrorMessage {
 		private String error;
+
 		public ErrorMessage(String error) {
 			this.error = error;
 		}
+
 		public String getError() {
 			return error;
 		}

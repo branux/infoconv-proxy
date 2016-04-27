@@ -10,30 +10,29 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 
-import br.gov.serpro.infoconv.proxy.businesscontroller.ConsultaCpfBC;
-import br.gov.serpro.infoconv.proxy.exception.CpfNaoEncontradoException;
+import br.gov.serpro.infoconv.proxy.businesscontroller.ConsultaCNPJBC;
 
-@Path("cpf")
-public class CpfResource {
+@Path("cnpj")
+public class CnpjResource {
 	
 	// TODO Para as consultas é necessário informar o cpf do consultante. Está
-	// hardcoded na classe cpfBC. Deveria vir no request.
+	// hardcoded na classe cnpjBC. Deveria vir no request.
 
 	@Inject
-	ConsultaCpfBC cpfBC;
+	ConsultaCNPJBC cnpjBC;
 
 	@GET
 	@Produces("application/json")
 	public Response find(@QueryParam("lista") String lista, @QueryParam("perfil") String perfil) throws Exception {
-		List<Object> resultado = cpfBC.consultarListaDeCpfPorPerfil(lista, perfil);
+		List<Object> resultado = cnpjBC.consultarListaDeCnpjPorPerfil(lista, perfil);
 		return Response.ok().entity(resultado).build();
 	}
 
 	@GET
-	@Path("{cpf}")
+	@Path("{cnpj}")
 	@Produces("application/json")
-	public Response load(@PathParam("cpf") String cpf, @QueryParam("perfil") String perfil) throws Exception {	
-		List<Object> resultado = cpfBC.consultarListaDeCpfPorPerfil(cpf, perfil);
+	public Response load(@PathParam("cnpj") String cnpj, @QueryParam("perfil") String perfil) throws Exception {
+		List<Object> resultado = cnpjBC.consultarListaDeCnpjPorPerfil(cnpj, perfil);
 		return Response.ok().entity(resultado.get(0)).build();
 	}
 
