@@ -4,6 +4,8 @@ Este projeto é um exemplo de como criar um Servidor para consumir o webservice 
 
 Esta abordagem permite que diversas aplicações de uma organização possam compartilhar este acesso de forma centralizada.  Cada organização poderá implementar seus critérios de authentição e controle de consumo.
 
+Caso você queira consumir diretamente o webservice sem a conversão para REST você pode utilizar o projeto [infoconv-ws](https://github.com/infoconv/infoconv-ws) ou testar seu certificado usando o SOAP-UI com o nosso [exemplo de configuração](https://github.com/infoconv/soapui).
+
 ## Requisitos
 - JDK versão 6 ou superior
 - Apache Maven versão 2.2 ou superior
