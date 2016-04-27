@@ -2,6 +2,8 @@
 
 Este projeto é um exemplo de como criar um Servidor para consumir o webservice do InfoConv e transforma-lo em uma API REST.
 
+Esta abordagem permite que diversas aplicações de uma organização possam compartilhar este acesso de forma centralizada.  Cada organização poderá implementar seus critérios de authentição e controle de consumo.
+
 ## Requisitos
 - JDK versão 6 ou superior
 - Apache Maven versão 2.2 ou superior
