@@ -1,6 +1,5 @@
 package br.gov.serpro.infoconv.proxy.rest.exceptionHandler;
 
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.ext.ExceptionMapper;
@@ -15,7 +14,7 @@ public class DadosInvalidosExceptionHandler implements ExceptionMapper<DadosInva
 	public Response toResponse(final DadosInvalidosException exception) {
 		return Response.status(Status.PRECONDITION_FAILED)
 				.entity(new ErrorMessage(exception.getMessage()))
-				.type(MediaType.APPLICATION_JSON)
+				.type("application/json; charset=UTF-8")
 				.build();
 	}
 	

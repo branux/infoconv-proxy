@@ -17,6 +17,9 @@ import br.gov.serpro.infoconv.proxy.util.InfoconvConfig;
 import br.gov.serpro.infoconv.ws.cnpj.ArrayOfCNPJPerfil1;
 import br.gov.serpro.infoconv.ws.cnpj.ArrayOfCNPJPerfil2;
 import br.gov.serpro.infoconv.ws.cnpj.ArrayOfCNPJPerfil3;
+import br.gov.serpro.infoconv.ws.cnpj.CNPJPerfil1;
+import br.gov.serpro.infoconv.ws.cnpj.CNPJPerfil2;
+import br.gov.serpro.infoconv.ws.cnpj.CNPJPerfil3;
 
 /**
  * Classe responsável por interagir com o componente infoconv-ws para obter as
@@ -141,6 +144,54 @@ public class ConsultaCNPJBC {
 		verificarErros(lista.get(0));
 
 		return lista;
+	}
+
+	/**
+	 * Consulta o webservice do infoconv ConsultarCNPJSoap/ConsultarCNPJP1 
+	 * 
+	 * @param listaCNPJs
+	 * @return
+	 * @throws AcessoNegadoException
+	 * @throws CpfNaoEncontradoException
+	 * @throws DadosInvalidosException
+	 * @throws InfraException
+	 */
+	public List<CNPJPerfil1> listarPerfil1(String listaCNPJs) throws AcessoNegadoException, CNPJNaoEncontradoException, DadosInvalidosException, InfraException{
+		ArrayOfCNPJPerfil1 result = infoconv.consultarCNPJSoap.consultarCNPJP1(listaCNPJs, CPF_CONSULTANTE);
+		verificarErros(result.getCNPJPerfil1().get(0));
+		return result.getCNPJPerfil1();
+	}
+	
+	/**
+	 * Consulta o webservice do infoconv ConsultarCNPJSoap/ConsultarCNPJP2 
+	 * 
+	 * @param listaCNPJs
+	 * @return
+	 * @throws AcessoNegadoException
+	 * @throws CpfNaoEncontradoException
+	 * @throws DadosInvalidosException
+	 * @throws InfraException
+	 */
+	public List<CNPJPerfil2> listarPerfil2(String listaCNPJs) throws AcessoNegadoException, CNPJNaoEncontradoException, DadosInvalidosException, InfraException{
+		ArrayOfCNPJPerfil2 result = infoconv.consultarCNPJSoap.consultarCNPJP2(listaCNPJs, CPF_CONSULTANTE);
+		verificarErros(result.getCNPJPerfil2().get(0));
+		return result.getCNPJPerfil2();
+	}
+	
+	/**
+	 * Consulta o webservice do infoconv ConsultarCNPJSoap/ConsultarCNPJP3 
+	 * 
+	 * @param listaCNPJs
+	 * @return
+	 * @throws AcessoNegadoException
+	 * @throws CpfNaoEncontradoException
+	 * @throws DadosInvalidosException
+	 * @throws InfraException
+	 */
+	public List<CNPJPerfil3> listarPerfil3(String listaCNPJs) throws AcessoNegadoException, CNPJNaoEncontradoException, DadosInvalidosException, InfraException{
+		ArrayOfCNPJPerfil3 result = infoconv.consultarCNPJSoap.consultarCNPJP3(listaCNPJs, CPF_CONSULTANTE);
+		verificarErros(result.getCNPJPerfil3().get(0));
+		return result.getCNPJPerfil3();
 	}
 
 }

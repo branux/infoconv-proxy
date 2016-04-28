@@ -21,6 +21,14 @@ import br.gov.serpro.infoconv.ws.cpf.ArrayOfPessoaPerfil3;
 import br.gov.serpro.infoconv.ws.cpf.ArrayOfPessoaPerfil3A;
 import br.gov.serpro.infoconv.ws.cpf.ArrayOfPessoaPerfilD;
 import br.gov.serpro.infoconv.ws.cpf.ArrayOfPessoaPerfilD2;
+import br.gov.serpro.infoconv.ws.cpf.PessoaPerfil1;
+import br.gov.serpro.infoconv.ws.cpf.PessoaPerfil1A;
+import br.gov.serpro.infoconv.ws.cpf.PessoaPerfil2;
+import br.gov.serpro.infoconv.ws.cpf.PessoaPerfil2A;
+import br.gov.serpro.infoconv.ws.cpf.PessoaPerfil3;
+import br.gov.serpro.infoconv.ws.cpf.PessoaPerfil3A;
+import br.gov.serpro.infoconv.ws.cpf.PessoaPerfilD;
+import br.gov.serpro.infoconv.ws.cpf.PessoaPerfilD2;
 
 /**
  * Classe responsável por interagir com o componente infoconv-ws para obter
@@ -35,6 +43,136 @@ public class ConsultaCpfBC {
 	InfoconvConfig infoconv;
 	
 	private static final String CPF_CONSULTANTE = "79506240949";
+	
+	
+	/**
+	 * Consulta o webservice do infoconv ConsultarCPFSoap/ConsultarCPFP1 
+	 * 
+	 * @param listaCPFs
+	 * @return
+	 * @throws AcessoNegadoException
+	 * @throws CpfNaoEncontradoException
+	 * @throws DadosInvalidosException
+	 * @throws InfraException
+	 */
+	public List<PessoaPerfil1> listarPerfil1(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
+		ArrayOfPessoaPerfil1 result = infoconv.consultarCPFSoap.consultarCPFP1(listaCPFs, CPF_CONSULTANTE);
+		verificarErros(result.getPessoaPerfil1().get(0));
+		return result.getPessoaPerfil1();
+	}
+	
+	/**
+	 * Consulta o webservice do infoconv ConsultarCPFSoap/ConsultarCPFP1A 
+	 *  
+	 * @param listaCPFs
+	 * @return
+	 * @throws AcessoNegadoException
+	 * @throws CpfNaoEncontradoException
+	 * @throws DadosInvalidosException
+	 * @throws InfraException
+	 */
+	public List<PessoaPerfil1A> listarPerfil1A(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
+		ArrayOfPessoaPerfil1A result = infoconv.consultarCPFSoap.consultarCPFP1A(listaCPFs, CPF_CONSULTANTE);
+		verificarErros(result.getPessoaPerfil1A().get(0));
+		return result.getPessoaPerfil1A();
+	}
+	
+	/**
+	 * Consulta o webservice do infoconv ConsultarCPFSoap/ConsultarCPFP2 
+	 * 
+	 * @param listaCPFs
+	 * @return
+	 * @throws AcessoNegadoException
+	 * @throws CpfNaoEncontradoException
+	 * @throws DadosInvalidosException
+	 * @throws InfraException
+	 */
+	public List<PessoaPerfil2> listarPerfil2(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
+		ArrayOfPessoaPerfil2 result = infoconv.consultarCPFSoap.consultarCPFP2(listaCPFs, CPF_CONSULTANTE);
+		verificarErros(result.getPessoaPerfil2().get(0));
+		return result.getPessoaPerfil2();
+	}
+	
+	/**
+	 * Consulta o webservice do infoconv ConsultarCPFSoap/ConsultarCPFP2A 
+	 * 
+	 * @param listaCPFs
+	 * @return
+	 * @throws AcessoNegadoException
+	 * @throws CpfNaoEncontradoException
+	 * @throws DadosInvalidosException
+	 * @throws InfraException
+	 */
+	public List<PessoaPerfil2A> listarPerfil2A(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
+		ArrayOfPessoaPerfil2A result = infoconv.consultarCPFSoap.consultarCPFP2A(listaCPFs, CPF_CONSULTANTE);
+		verificarErros(result.getPessoaPerfil2A().get(0));
+		return result.getPessoaPerfil2A();
+	}
+	
+	/**
+	 * Consulta o webservice do infoconv ConsultarCPFSoap/ConsultarCPFP3
+	 * 
+	 * @param listaCPFs
+	 * @return
+	 * @throws AcessoNegadoException
+	 * @throws CpfNaoEncontradoException
+	 * @throws DadosInvalidosException
+	 * @throws InfraException
+	 */
+	public List<PessoaPerfil3> listarPerfil3(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
+		ArrayOfPessoaPerfil3 result = infoconv.consultarCPFSoap.consultarCPFP3(listaCPFs, CPF_CONSULTANTE);
+		verificarErros(result.getPessoaPerfil3().get(0));
+		return result.getPessoaPerfil3();
+	}
+	
+	/**
+	 * Consulta o webservice do infoconv ConsultarCPFSoap/ConsultarCPFP3A
+	 * 
+	 * @param listaCPFs
+	 * @return
+	 * @throws AcessoNegadoException
+	 * @throws CpfNaoEncontradoException
+	 * @throws DadosInvalidosException
+	 * @throws InfraException
+	 */
+	public List<PessoaPerfil3A> listarPerfil3A(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
+		ArrayOfPessoaPerfil3A result = infoconv.consultarCPFSoap.consultarCPFP3A(listaCPFs, CPF_CONSULTANTE);
+		verificarErros(result.getPessoaPerfil3A().get(0));
+		return result.getPessoaPerfil3A();
+	}
+	
+	/**
+	 * Consulta o webservice do infoconv ConsultarCPFSoap/ConsultarCPFPD 
+	 * 
+	 * @param listaCPFs
+	 * @return
+	 * @throws AcessoNegadoException
+	 * @throws CpfNaoEncontradoException
+	 * @throws DadosInvalidosException
+	 * @throws InfraException
+	 */
+	public List<PessoaPerfilD> listarPerfilD(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
+		ArrayOfPessoaPerfilD result = infoconv.consultarCPFSoap.consultarCPFPD(listaCPFs, CPF_CONSULTANTE);
+		verificarErros(result.getPessoaPerfilD().get(0));
+		return result.getPessoaPerfilD();
+	}
+	
+	/**
+	 * Consulta o webservice do infoconv ConsultarCPFSoap/ConsultarCPFPD2 
+	 * 
+	 * @param listaCPFs
+	 * @return
+	 * @throws AcessoNegadoException
+	 * @throws CpfNaoEncontradoException
+	 * @throws DadosInvalidosException
+	 * @throws InfraException
+	 */
+	public List<PessoaPerfilD2> listarPerfilD2(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
+		ArrayOfPessoaPerfilD2 result = infoconv.consultarCPFSoap.consultarCPFPD2(listaCPFs, CPF_CONSULTANTE);
+		verificarErros(result.getPessoaPerfilD2().get(0));
+		return result.getPessoaPerfilD2();
+	}
+	
 	
 	/**
 	 * Verifica a propriedade ERRO para saber se houve algum problema na
@@ -147,5 +285,8 @@ public class ConsultaCpfBC {
 		
 		return lista;
 	}
+
+
+
 	
 }

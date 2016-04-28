@@ -30,13 +30,9 @@
 		</dependency>
 
 
-
 		<!-- Demoiselle dependencies -->
-		<dependency>
-			<groupId>br.gov.frameworkdemoiselle</groupId>
-			<artifactId>demoiselle-jpa</artifactId>
-			<scope>compile</scope>
-		</dependency>
+		<!-- <dependency> <groupId>br.gov.frameworkdemoiselle</groupId> <artifactId>demoiselle-jpa</artifactId> 
+			<scope>compile</scope> </dependency> -->
 		<!-- Uncomment this dependency if you are using a JTA -->
 		<!-- <dependency> <groupId>br.gov.frameworkdemoiselle</groupId> <artifactId>demoiselle-jta</artifactId> 
 			<scope>compile</scope> </dependency> -->
@@ -55,6 +51,14 @@
 			<artifactId>urlrewritefilter</artifactId>
 			<version>4.0.4</version>
 			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-jaxrs</artifactId>
+			<version>1.5.4</version>
+			<!-- <exclusions> <exclusion> <groupId>com.google.guava</groupId> <artifactId>guava</artifactId> 
+				</exclusion> </exclusions> -->
 		</dependency>
 
 		<!-- Tests dependencies -->
