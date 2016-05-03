@@ -1,0 +1,2043 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Api para consumo dos webservcies do Infoconv CPF e CNPJ",
+    "version" : "v1",
+    "title" : "Infoconv proxy"
+  },
+  "host" : "cetec01.sdr.serpro:8080/infoconv-proxy",
+  "basePath" : "/api",
+  "tags" : [ {
+    "name" : "cpf : Consulta a CPF's para um perfil."
+  }, {
+    "name" : "cnpj: Consulta a CNPJ's para um perfil."
+  } ],
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/cnpj/perfil1" : {
+      "get" : {
+        "tags" : [ "cnpj: Consulta a CNPJ's para um perfil." ],
+        "summary" : "Consulta os CNPJ's para o Perfil 1",
+        "description" : "",
+        "operationId" : "obterListaPerfil1",
+        "produces" : [ "application/json; charset=UTF-8" ],
+        "parameters" : [ {
+          "name" : "listaCNPJ",
+          "in" : "query",
+          "description" : "Lista de CNPJ's. Apenas números e separados por ponto e vírgula.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/CNPJPerfil1"
+              }
+            }
+          },
+          "401" : {
+            "description" : "ACS - Erro xx - Acesso negado."
+          },
+          "412" : {
+            "description" : "CPF's ou certificados inválidos"
+          },
+          "500" : {
+            "description" : "Instabilidade nos servidores do infoconv"
+          },
+          "404" : {
+            "description" : "CPF - Erro 04 – CPF não encontrado."
+          }
+        }
+      }
+    },
+    "/cnpj/perfil2" : {
+      "get" : {
+        "tags" : [ "cnpj: Consulta a CNPJ's para um perfil." ],
+        "summary" : "Consulta os CNPJ's para o Perfil 2",
+        "description" : "",
+        "operationId" : "obterListaPerfil2",
+        "produces" : [ "application/json; charset=UTF-8" ],
+        "parameters" : [ {
+          "name" : "listaCNPJ",
+          "in" : "query",
+          "description" : "Lista de CNPJ's. Apenas números e separados por ponto e vírgula.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/CNPJPerfil2"
+              }
+            }
+          },
+          "401" : {
+            "description" : "ACS - Erro xx - Acesso negado."
+          },
+          "412" : {
+            "description" : "CPF's ou certificados inválidos"
+          },
+          "500" : {
+            "description" : "Instabilidade nos servidores do infoconv"
+          },
+          "404" : {
+            "description" : "CPF - Erro 04 – CPF não encontrado."
+          }
+        }
+      }
+    },
+    "/cnpj/perfil3" : {
+      "get" : {
+        "tags" : [ "cnpj: Consulta a CNPJ's para um perfil." ],
+        "summary" : "Consulta os CNPJ's para o Perfil 3",
+        "description" : "",
+        "operationId" : "obterListaPerfil3",
+        "produces" : [ "application/json; charset=UTF-8" ],
+        "parameters" : [ {
+          "name" : "listaCNPJ",
+          "in" : "query",
+          "description" : "Lista de CNPJ's. Apenas números e separados por ponto e vírgula.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/CNPJPerfil3"
+              }
+            }
+          },
+          "401" : {
+            "description" : "ACS - Erro xx - Acesso negado."
+          },
+          "412" : {
+            "description" : "CPF's ou certificados inválidos"
+          },
+          "500" : {
+            "description" : "Instabilidade nos servidores do infoconv"
+          },
+          "404" : {
+            "description" : "CPF - Erro 04 – CPF não encontrado."
+          }
+        }
+      }
+    },
+    "/cpf/perfil1" : {
+      "get" : {
+        "tags" : [ "cpf : Consulta a CPF's para um perfil." ],
+        "summary" : "Consulta os CPF's para o Perfil 1",
+        "description" : "",
+        "operationId" : "obterListaPerfil1",
+        "produces" : [ "application/json; charset=UTF-8" ],
+        "parameters" : [ {
+          "name" : "listaCPF",
+          "in" : "query",
+          "description" : "Lista de CPF's. Apenas números e separados por ponto e vírgula.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/PessoaPerfil1"
+              }
+            }
+          },
+          "401" : {
+            "description" : "ACS - Erro xx - Acesso negado."
+          },
+          "412" : {
+            "description" : "CPF's ou certificados inválidos"
+          },
+          "500" : {
+            "description" : "Instabilidade nos servidores do infoconv"
+          },
+          "404" : {
+            "description" : "CPF - Erro 04 – CPF não encontrado."
+          }
+        }
+      }
+    },
+    "/cpf/perfil1A" : {
+      "get" : {
+        "tags" : [ "cpf : Consulta a CPF's para um perfil." ],
+        "summary" : "Consulta os CPF's para o Perfil 1A",
+        "description" : "",
+        "operationId" : "obterListaPerfil1A",
+        "produces" : [ "application/json; charset=UTF-8" ],
+        "parameters" : [ {
+          "name" : "listaCPF",
+          "in" : "query",
+          "description" : "Lista de CPF's. Apenas números e separados por ponto e vírgula.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/PessoaPerfil1A"
+              }
+            }
+          },
+          "401" : {
+            "description" : "ACS - Erro xx - Acesso negado."
+          },
+          "412" : {
+            "description" : "CPF's ou certificados inválidos"
+          },
+          "500" : {
+            "description" : "Instabilidade nos servidores do infoconv"
+          },
+          "404" : {
+            "description" : "CPF - Erro 04 – CPF não encontrado."
+          }
+        }
+      }
+    },
+    "/cpf/perfil2" : {
+      "get" : {
+        "tags" : [ "cpf : Consulta a CPF's para um perfil." ],
+        "summary" : "Consulta os CPF's para o Perfil 2",
+        "description" : "",
+        "operationId" : "obterListaPerfil2",
+        "produces" : [ "application/json; charset=UTF-8" ],
+        "parameters" : [ {
+          "name" : "listaCPF",
+          "in" : "query",
+          "description" : "Lista de CPF's. Apenas números e separados por ponto e vírgula.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/PessoaPerfil2"
+              }
+            }
+          },
+          "401" : {
+            "description" : "ACS - Erro xx - Acesso negado."
+          },
+          "412" : {
+            "description" : "CPF's ou certificados inválidos"
+          },
+          "500" : {
+            "description" : "Instabilidade nos servidores do infoconv"
+          },
+          "404" : {
+            "description" : "CPF - Erro 04 – CPF não encontrado."
+          }
+        }
+      }
+    },
+    "/cpf/perfil2A" : {
+      "get" : {
+        "tags" : [ "cpf : Consulta a CPF's para um perfil." ],
+        "summary" : "Consulta os CPF's para o Perfil 2A",
+        "description" : "",
+        "operationId" : "obterListaPerfil2A",
+        "produces" : [ "application/json; charset=UTF-8" ],
+        "parameters" : [ {
+          "name" : "listaCPF",
+          "in" : "query",
+          "description" : "Lista de CPF's. Apenas números e separados por ponto e vírgula.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/PessoaPerfil2A"
+              }
+            }
+          },
+          "401" : {
+            "description" : "ACS - Erro xx - Acesso negado."
+          },
+          "412" : {
+            "description" : "CPF's ou certificados inválidos"
+          },
+          "500" : {
+            "description" : "Instabilidade nos servidores do infoconv"
+          },
+          "404" : {
+            "description" : "CPF - Erro 04 – CPF não encontrado."
+          }
+        }
+      }
+    },
+    "/cpf/perfil3" : {
+      "get" : {
+        "tags" : [ "cpf : Consulta a CPF's para um perfil." ],
+        "summary" : "Consulta os CPF's para o Perfil 3",
+        "description" : "",
+        "operationId" : "obterListaPerfil3",
+        "produces" : [ "application/json; charset=UTF-8" ],
+        "parameters" : [ {
+          "name" : "listaCPF",
+          "in" : "query",
+          "description" : "Lista de CPF's. Apenas números e separados por ponto e vírgula.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/PessoaPerfil3"
+              }
+            }
+          },
+          "401" : {
+            "description" : "ACS - Erro xx - Acesso negado."
+          },
+          "412" : {
+            "description" : "CPF's ou certificados inválidos"
+          },
+          "500" : {
+            "description" : "Instabilidade nos servidores do infoconv"
+          },
+          "404" : {
+            "description" : "CPF - Erro 04 – CPF não encontrado."
+          }
+        }
+      }
+    },
+    "/cpf/perfil3A" : {
+      "get" : {
+        "tags" : [ "cpf : Consulta a CPF's para um perfil." ],
+        "summary" : "Consulta os CPF's para o Perfil 3A",
+        "description" : "",
+        "operationId" : "obterListaPerfil3A",
+        "produces" : [ "application/json; charset=UTF-8" ],
+        "parameters" : [ {
+          "name" : "listaCPF",
+          "in" : "query",
+          "description" : "Lista de CPF's. Apenas números e separados por ponto e vírgula.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/PessoaPerfil3A"
+              }
+            }
+          },
+          "401" : {
+            "description" : "ACS - Erro xx - Acesso negado."
+          },
+          "412" : {
+            "description" : "CPF's ou certificados inválidos"
+          },
+          "500" : {
+            "description" : "Instabilidade nos servidores do infoconv"
+          },
+          "404" : {
+            "description" : "CPF - Erro 04 – CPF não encontrado."
+          }
+        }
+      }
+    },
+    "/cpf/perfilD" : {
+      "get" : {
+        "tags" : [ "cpf : Consulta a CPF's para um perfil." ],
+        "summary" : "Consulta os CPF's para o Perfil D",
+        "description" : "",
+        "operationId" : "obterListaPerfilD",
+        "produces" : [ "application/json; charset=UTF-8" ],
+        "parameters" : [ {
+          "name" : "listaCPF",
+          "in" : "query",
+          "description" : "Lista de CPF's. Apenas números e separados por ponto e vírgula.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/PessoaPerfilD"
+              }
+            }
+          },
+          "401" : {
+            "description" : "ACS - Erro xx - Acesso negado."
+          },
+          "412" : {
+            "description" : "CPF's ou certificados inválidos"
+          },
+          "500" : {
+            "description" : "Instabilidade nos servidores do infoconv"
+          },
+          "404" : {
+            "description" : "CPF - Erro 04 – CPF não encontrado."
+          }
+        }
+      }
+    },
+    "/cpf/perfilD2" : {
+      "get" : {
+        "tags" : [ "cpf : Consulta a CPF's para um perfil." ],
+        "summary" : "Consulta os CPF's para o Perfil D2",
+        "description" : "",
+        "operationId" : "obterListaPerfilD2",
+        "produces" : [ "application/json; charset=UTF-8" ],
+        "parameters" : [ {
+          "name" : "listaCPF",
+          "in" : "query",
+          "description" : "Lista de CPF's. Apenas números e separados por ponto e vírgula.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/PessoaPerfilD2"
+              }
+            }
+          },
+          "401" : {
+            "description" : "ACS - Erro xx - Acesso negado."
+          },
+          "412" : {
+            "description" : "CPF's ou certificados inválidos"
+          },
+          "500" : {
+            "description" : "Instabilidade nos servidores do infoconv"
+          },
+          "404" : {
+            "description" : "CPF - Erro 04 – CPF não encontrado."
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "PessoaPerfil3" : {
+      "type" : "object",
+      "properties" : {
+        "cpf" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CPF"
+          }
+        },
+        "nome" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Nome"
+          }
+        },
+        "situacaoCadastral" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "SituacaoCadastral"
+          }
+        },
+        "residenteExterior" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ResidenteExterior"
+          }
+        },
+        "codigoPaisExterior" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CodigoPaisExterior"
+          }
+        },
+        "nomePaisExterior" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomePaisExterior"
+          }
+        },
+        "nomeMae" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeMae"
+          }
+        },
+        "dataNascimento" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataNascimento"
+          }
+        },
+        "sexo" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Sexo"
+          }
+        },
+        "naturezaOcupacao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NaturezaOcupacao"
+          }
+        },
+        "ocupacaoPrincipal" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "OcupacaoPrincipal"
+          }
+        },
+        "exercicioOcupacao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ExercicioOcupacao"
+          }
+        },
+        "tipoLogradouro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TipoLogradouro"
+          }
+        },
+        "logradouro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Logradouro"
+          }
+        },
+        "numeroLogradouro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NumeroLogradouro"
+          }
+        },
+        "complemento" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Complemento"
+          }
+        },
+        "cep" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CEP"
+          }
+        },
+        "bairro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Bairro"
+          }
+        },
+        "codigoMunicipio" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CodigoMunicipio"
+          }
+        },
+        "municipio" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Municipio"
+          }
+        },
+        "uf" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "UF"
+          }
+        },
+        "ddd" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DDD"
+          }
+        },
+        "telefone" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Telefone"
+          }
+        },
+        "unidadeAdministrativa" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "UnidadeAdministrativa"
+          }
+        },
+        "anoObito" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "AnoObito"
+          }
+        },
+        "estrangeiro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Estrangeiro"
+          }
+        },
+        "dataAtualizacao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataAtualizacao"
+          }
+        },
+        "tituloEleitor" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TituloEleitor"
+          }
+        },
+        "erro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Erro"
+          }
+        }
+      }
+    },
+    "Socio" : {
+      "type" : "object",
+      "properties" : {
+        "tipo" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Tipo"
+          }
+        },
+        "nome" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Nome"
+          }
+        },
+        "numero" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Numero"
+          }
+        },
+        "percentualParticipacao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "PercentualParticipacao"
+          }
+        },
+        "codigoPaisOrigem" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CodigoPaisOrigem"
+          }
+        },
+        "nomePaisOrigem" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomePaisOrigem"
+          }
+        }
+      }
+    },
+    "PessoaPerfilD" : {
+      "type" : "object",
+      "properties" : {
+        "cpf" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CPF"
+          }
+        },
+        "nome" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Nome"
+          }
+        },
+        "situacaoCadastral" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "SituacaoCadastral"
+          }
+        },
+        "residenteExterior" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ResidenteExterior"
+          }
+        },
+        "codigoPaisExterior" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CodigoPaisExterior"
+          }
+        },
+        "nomePaisExterior" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomePaisExterior"
+          }
+        },
+        "nomeMae" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeMae"
+          }
+        },
+        "dataNascimento" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataNascimento"
+          }
+        },
+        "sexo" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Sexo"
+          }
+        },
+        "naturezaOcupacao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NaturezaOcupacao"
+          }
+        },
+        "ocupacaoPrincipal" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "OcupacaoPrincipal"
+          }
+        },
+        "exercicioOcupacao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ExercicioOcupacao"
+          }
+        },
+        "tipoLogradouro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TipoLogradouro"
+          }
+        },
+        "logradouro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Logradouro"
+          }
+        },
+        "numeroLogradouro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NumeroLogradouro"
+          }
+        },
+        "complemento" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Complemento"
+          }
+        },
+        "cep" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CEP"
+          }
+        },
+        "bairro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Bairro"
+          }
+        },
+        "codigoMunicipio" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CodigoMunicipio"
+          }
+        },
+        "municipio" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Municipio"
+          }
+        },
+        "uf" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "UF"
+          }
+        },
+        "ddd" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DDD"
+          }
+        },
+        "telefone" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Telefone"
+          }
+        },
+        "unidadeAdministrativa" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "UnidadeAdministrativa"
+          }
+        },
+        "anoObito" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "AnoObito"
+          }
+        },
+        "estrangeiro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Estrangeiro"
+          }
+        },
+        "dataAtualizacao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataAtualizacao"
+          }
+        },
+        "tituloEleitor" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TituloEleitor"
+          }
+        },
+        "erro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Erro"
+          }
+        }
+      }
+    },
+    "CNPJPerfil3" : {
+      "type" : "object",
+      "properties" : {
+        "cnpj" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CNPJ"
+          }
+        },
+        "estabelecimento" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Estabelecimento"
+          }
+        },
+        "nomeEmpresarial" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeEmpresarial"
+          }
+        },
+        "nomeFantasia" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeFantasia"
+          }
+        },
+        "situacaoCadastral" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "SituacaoCadastral"
+          }
+        },
+        "dataSituacaoCadastral" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataSituacaoCadastral"
+          }
+        },
+        "cidadeExterior" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CidadeExterior"
+          }
+        },
+        "codigoPais" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CodigoPais"
+          }
+        },
+        "nomePais" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomePais"
+          }
+        },
+        "naturezaJuridica" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NaturezaJuridica"
+          }
+        },
+        "dataAbertura" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataAbertura"
+          }
+        },
+        "tipoLogradouro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TipoLogradouro"
+          }
+        },
+        "logradouro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Logradouro"
+          }
+        },
+        "numeroLogradouro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NumeroLogradouro"
+          }
+        },
+        "complemento" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Complemento"
+          }
+        },
+        "bairro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Bairro"
+          }
+        },
+        "cep" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CEP"
+          }
+        },
+        "uf" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "UF"
+          }
+        },
+        "codigoMunicipio" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CodigoMunicipio"
+          }
+        },
+        "nomeMunicipio" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeMunicipio"
+          }
+        },
+        "ddd1" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DDD1"
+          }
+        },
+        "telefone1" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Telefone1"
+          }
+        },
+        "ddd2" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DDD2"
+          }
+        },
+        "telefone2" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Telefone2"
+          }
+        },
+        "email" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Email"
+          }
+        },
+        "nomeResponsavel" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeResponsavel"
+          }
+        },
+        "capitalSocial" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CapitalSocial"
+          }
+        },
+        "sociedade" : {
+          "xml" : {
+            "name" : "Sociedade"
+          },
+          "$ref" : "#/definitions/ArrayOfSocio"
+        },
+        "tipoCRCContadorPJ" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TipoCRCContadorPJ"
+          }
+        },
+        "classificacaoCRCContadorPJ" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ClassificacaoCRCContadorPJ"
+          }
+        },
+        "numeroCRCContadorPJ" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NumeroCRCContadorPJ"
+          }
+        },
+        "tipoCRCContadorPF" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TipoCRCContadorPF"
+          }
+        },
+        "classificacaoCRCContadorPF" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ClassificacaoCRCContadorPF"
+          }
+        },
+        "numeroCRCContadorPF" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NumeroCRCContadorPF"
+          }
+        },
+        "porte" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Porte"
+          }
+        },
+        "opcaoSimples" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "OpcaoSimples"
+          }
+        },
+        "dataOpcaoSimples" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataOpcaoSimples"
+          }
+        },
+        "dataExclusaoSimples" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataExclusaoSimples"
+          }
+        },
+        "erro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Erro"
+          }
+        },
+        "cnaeprincipal" : {
+          "type" : "string"
+        },
+        "cnaesecundario" : {
+          "$ref" : "#/definitions/ArrayOfString"
+        },
+        "cpfresponsavel" : {
+          "type" : "string"
+        },
+        "ufcrccontadorPJ" : {
+          "type" : "string"
+        },
+        "cnpjcontador" : {
+          "type" : "string"
+        },
+        "ufcrccontadorPF" : {
+          "type" : "string"
+        },
+        "cpfcontador" : {
+          "type" : "string"
+        },
+        "cnpjsucedida" : {
+          "type" : "string"
+        },
+        "cnpjsucessora" : {
+          "$ref" : "#/definitions/ArrayOfString"
+        }
+      }
+    },
+    "CNPJPerfil2" : {
+      "type" : "object",
+      "properties" : {
+        "cnpj" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CNPJ"
+          }
+        },
+        "estabelecimento" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Estabelecimento"
+          }
+        },
+        "nomeEmpresarial" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeEmpresarial"
+          }
+        },
+        "nomeFantasia" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeFantasia"
+          }
+        },
+        "situacaoCadastral" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "SituacaoCadastral"
+          }
+        },
+        "dataSituacaoCadastral" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataSituacaoCadastral"
+          }
+        },
+        "cidadeExterior" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CidadeExterior"
+          }
+        },
+        "codigoPais" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CodigoPais"
+          }
+        },
+        "nomePais" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomePais"
+          }
+        },
+        "naturezaJuridica" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NaturezaJuridica"
+          }
+        },
+        "dataAbertura" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataAbertura"
+          }
+        },
+        "tipoLogradouro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TipoLogradouro"
+          }
+        },
+        "logradouro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Logradouro"
+          }
+        },
+        "numeroLogradouro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NumeroLogradouro"
+          }
+        },
+        "complemento" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Complemento"
+          }
+        },
+        "bairro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Bairro"
+          }
+        },
+        "cep" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CEP"
+          }
+        },
+        "uf" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "UF"
+          }
+        },
+        "codigoMunicipio" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CodigoMunicipio"
+          }
+        },
+        "nomeMunicipio" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeMunicipio"
+          }
+        },
+        "ddd1" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DDD1"
+          }
+        },
+        "telefone1" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Telefone1"
+          }
+        },
+        "ddd2" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DDD2"
+          }
+        },
+        "telefone2" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Telefone2"
+          }
+        },
+        "email" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Email"
+          }
+        },
+        "erro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Erro"
+          }
+        },
+        "cnaeprincipal" : {
+          "type" : "string"
+        },
+        "cnaesecundario" : {
+          "$ref" : "#/definitions/ArrayOfString"
+        }
+      }
+    },
+    "CNPJPerfil1" : {
+      "type" : "object",
+      "properties" : {
+        "cnpj" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CNPJ"
+          }
+        },
+        "estabelecimento" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Estabelecimento"
+          }
+        },
+        "nomeEmpresarial" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeEmpresarial"
+          }
+        },
+        "nomeFantasia" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeFantasia"
+          }
+        },
+        "situacaoCadastral" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "SituacaoCadastral"
+          }
+        },
+        "cidadeExterior" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CidadeExterior"
+          }
+        },
+        "codigoPais" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CodigoPais"
+          }
+        },
+        "nomePais" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomePais"
+          }
+        },
+        "erro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Erro"
+          }
+        }
+      }
+    },
+    "ArrayOfString" : {
+      "type" : "object",
+      "properties" : {
+        "string" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "PessoaPerfil2A" : {
+      "type" : "object",
+      "properties" : {
+        "cpf" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CPF"
+          }
+        },
+        "nome" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Nome"
+          }
+        },
+        "situacaoCadastral" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "SituacaoCadastral"
+          }
+        },
+        "residenteExterior" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ResidenteExterior"
+          }
+        },
+        "nomeMae" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeMae"
+          }
+        },
+        "dataNascimento" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataNascimento"
+          }
+        },
+        "sexo" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Sexo"
+          }
+        },
+        "tituloEleitor" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TituloEleitor"
+          }
+        },
+        "anoObito" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "AnoObito"
+          }
+        },
+        "dataAtualizacao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataAtualizacao"
+          }
+        },
+        "dataInscricao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataInscricao"
+          }
+        },
+        "codigoMunicipioNaturalidade" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CodigoMunicipioNaturalidade"
+          }
+        },
+        "nomeMunicipioNaturalidade" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeMunicipioNaturalidade"
+          }
+        },
+        "erro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Erro"
+          }
+        },
+        "ufmunicipioNaturalidade" : {
+          "type" : "string"
+        }
+      }
+    },
+    "PessoaPerfil1A" : {
+      "type" : "object",
+      "properties" : {
+        "cpf" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CPF"
+          }
+        },
+        "nome" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Nome"
+          }
+        },
+        "situacaoCadastral" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "SituacaoCadastral"
+          }
+        },
+        "residenteExterior" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ResidenteExterior"
+          }
+        },
+        "nomeMae" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeMae"
+          }
+        },
+        "dataAtualizacao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataAtualizacao"
+          }
+        },
+        "dataInscricao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataInscricao"
+          }
+        },
+        "codigoMunicipioNaturalidade" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CodigoMunicipioNaturalidade"
+          }
+        },
+        "nomeMunicipioNaturalidade" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeMunicipioNaturalidade"
+          }
+        },
+        "erro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Erro"
+          }
+        },
+        "ufmunicipioNaturalidade" : {
+          "type" : "string"
+        }
+      }
+    },
+    "PessoaPerfil3A" : {
+      "type" : "object",
+      "properties" : {
+        "cpf" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CPF"
+          }
+        },
+        "nome" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Nome"
+          }
+        },
+        "situacaoCadastral" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "SituacaoCadastral"
+          }
+        },
+        "residenteExterior" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ResidenteExterior"
+          }
+        },
+        "codigoPaisExterior" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CodigoPaisExterior"
+          }
+        },
+        "nomePaisExterior" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomePaisExterior"
+          }
+        },
+        "nomeMae" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeMae"
+          }
+        },
+        "dataNascimento" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataNascimento"
+          }
+        },
+        "sexo" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Sexo"
+          }
+        },
+        "naturezaOcupacao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NaturezaOcupacao"
+          }
+        },
+        "ocupacaoPrincipal" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "OcupacaoPrincipal"
+          }
+        },
+        "exercicioOcupacao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ExercicioOcupacao"
+          }
+        },
+        "tipoLogradouro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TipoLogradouro"
+          }
+        },
+        "logradouro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Logradouro"
+          }
+        },
+        "numeroLogradouro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NumeroLogradouro"
+          }
+        },
+        "complemento" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Complemento"
+          }
+        },
+        "cep" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CEP"
+          }
+        },
+        "bairro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Bairro"
+          }
+        },
+        "codigoMunicipio" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CodigoMunicipio"
+          }
+        },
+        "municipio" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Municipio"
+          }
+        },
+        "uf" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "UF"
+          }
+        },
+        "ddd" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DDD"
+          }
+        },
+        "telefone" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Telefone"
+          }
+        },
+        "unidadeAdministrativa" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "UnidadeAdministrativa"
+          }
+        },
+        "anoObito" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "AnoObito"
+          }
+        },
+        "estrangeiro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Estrangeiro"
+          }
+        },
+        "dataAtualizacao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataAtualizacao"
+          }
+        },
+        "tituloEleitor" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TituloEleitor"
+          }
+        },
+        "dataInscricao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataInscricao"
+          }
+        },
+        "codigoMunicipioNaturalidade" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CodigoMunicipioNaturalidade"
+          }
+        },
+        "nomeMunicipioNaturalidade" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeMunicipioNaturalidade"
+          }
+        },
+        "erro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Erro"
+          }
+        },
+        "ufmunicipioNaturalidade" : {
+          "type" : "string"
+        }
+      }
+    },
+    "PessoaPerfilD2" : {
+      "type" : "object",
+      "properties" : {
+        "cpf" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CPF"
+          }
+        },
+        "nome" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Nome"
+          }
+        },
+        "situacaoCadastral" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "SituacaoCadastral"
+          }
+        },
+        "residenteExterior" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ResidenteExterior"
+          }
+        },
+        "codigoPaisExterior" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CodigoPaisExterior"
+          }
+        },
+        "nomePaisExterior" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomePaisExterior"
+          }
+        },
+        "nomeMae" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeMae"
+          }
+        },
+        "dataNascimento" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataNascimento"
+          }
+        },
+        "sexo" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Sexo"
+          }
+        },
+        "naturezaOcupacao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NaturezaOcupacao"
+          }
+        },
+        "ocupacaoPrincipal" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "OcupacaoPrincipal"
+          }
+        },
+        "exercicioOcupacao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ExercicioOcupacao"
+          }
+        },
+        "tipoLogradouro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TipoLogradouro"
+          }
+        },
+        "logradouro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Logradouro"
+          }
+        },
+        "numeroLogradouro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NumeroLogradouro"
+          }
+        },
+        "complemento" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Complemento"
+          }
+        },
+        "cep" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CEP"
+          }
+        },
+        "bairro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Bairro"
+          }
+        },
+        "codigoMunicipio" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CodigoMunicipio"
+          }
+        },
+        "municipio" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Municipio"
+          }
+        },
+        "uf" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "UF"
+          }
+        },
+        "ddd" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DDD"
+          }
+        },
+        "telefone" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Telefone"
+          }
+        },
+        "unidadeAdministrativa" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "UnidadeAdministrativa"
+          }
+        },
+        "anoObito" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "AnoObito"
+          }
+        },
+        "estrangeiro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Estrangeiro"
+          }
+        },
+        "dataAtualizacao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataAtualizacao"
+          }
+        },
+        "tituloEleitor" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TituloEleitor"
+          }
+        },
+        "dataInscricao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataInscricao"
+          }
+        },
+        "codigoMunicipioNaturalidade" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CodigoMunicipioNaturalidade"
+          }
+        },
+        "nomeMunicipioNaturalidade" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeMunicipioNaturalidade"
+          }
+        },
+        "erro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Erro"
+          }
+        },
+        "ufmunicipioNaturalidade" : {
+          "type" : "string"
+        }
+      }
+    },
+    "PessoaPerfil1" : {
+      "type" : "object",
+      "properties" : {
+        "cpf" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CPF"
+          }
+        },
+        "nome" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Nome"
+          }
+        },
+        "situacaoCadastral" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "SituacaoCadastral"
+          }
+        },
+        "residenteExterior" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ResidenteExterior"
+          }
+        },
+        "nomeMae" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeMae"
+          }
+        },
+        "dataAtualizacao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataAtualizacao"
+          }
+        },
+        "erro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Erro"
+          }
+        }
+      }
+    },
+    "PessoaPerfil2" : {
+      "type" : "object",
+      "properties" : {
+        "cpf" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CPF"
+          }
+        },
+        "nome" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Nome"
+          }
+        },
+        "situacaoCadastral" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "SituacaoCadastral"
+          }
+        },
+        "residenteExterior" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ResidenteExterior"
+          }
+        },
+        "nomeMae" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "NomeMae"
+          }
+        },
+        "dataNascimento" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataNascimento"
+          }
+        },
+        "sexo" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Sexo"
+          }
+        },
+        "tituloEleitor" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TituloEleitor"
+          }
+        },
+        "anoObito" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "AnoObito"
+          }
+        },
+        "dataAtualizacao" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DataAtualizacao"
+          }
+        },
+        "erro" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Erro"
+          }
+        }
+      }
+    },
+    "ArrayOfSocio" : {
+      "type" : "object",
+      "properties" : {
+        "socio" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "Socio"
+          },
+          "items" : {
+            "$ref" : "#/definitions/Socio"
+          }
+        }
+      }
+    }
+  }
+}

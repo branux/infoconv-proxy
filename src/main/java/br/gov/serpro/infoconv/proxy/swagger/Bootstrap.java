@@ -23,7 +23,7 @@ public class Bootstrap extends HttpServlet {
         BeanConfig beanConfig = new BeanConfig();
         beanConfig.setVersion("1.0.2");
         beanConfig.setSchemes(new String[]{"http"});
-        beanConfig.setHost("localhost:8080/infoconv-proxy");
+        beanConfig.setHost("cetec01.sdr.serpro:8080/infoconv-proxy");
         beanConfig.setBasePath("/api");
         beanConfig.setResourcePackage(Api.class.getPackage().getName());
         beanConfig.setScan(true);
