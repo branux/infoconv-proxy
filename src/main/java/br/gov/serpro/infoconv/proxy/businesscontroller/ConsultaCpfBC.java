@@ -14,6 +14,8 @@ import br.gov.serpro.infoconv.proxy.exception.InfraException;
 import br.gov.serpro.infoconv.proxy.exception.PerfilInvalidoException;
 import br.gov.serpro.infoconv.proxy.rest.dto.cpf.Perfil1;
 import br.gov.serpro.infoconv.proxy.rest.dto.cpf.Perfil2;
+import br.gov.serpro.infoconv.proxy.rest.dto.cpf.Perfil3;
+import br.gov.serpro.infoconv.proxy.rest.dto.cpf.PerfilD;
 import br.gov.serpro.infoconv.proxy.util.InfoconvConfig;
 import br.gov.serpro.infoconv.ws.cpf.ArrayOfPessoaPerfil1;
 import br.gov.serpro.infoconv.ws.cpf.ArrayOfPessoaPerfil1A;
@@ -133,10 +135,15 @@ public class ConsultaCpfBC {
 	 * @throws DadosInvalidosException
 	 * @throws InfraException
 	 */
-	public List<PessoaPerfil3> listarPerfil3(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
+	public List<Perfil3> listarPerfil3(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
 		ArrayOfPessoaPerfil3 result = infoconv.consultarCPFSoap.consultarCPFP3(listaCPFs, CPF_CONSULTANTE);
 		verificarErros(result.getPessoaPerfil3().get(0));
-		return result.getPessoaPerfil3();
+		List<Perfil3> lista = new ArrayList<Perfil3>();
+		for (PessoaPerfil3 p : result.getPessoaPerfil3()) {
+			lista.add(new Perfil3(p));
+		}
+		
+		return lista;
 	}
 	
 	/**
@@ -165,10 +172,15 @@ public class ConsultaCpfBC {
 	 * @throws DadosInvalidosException
 	 * @throws InfraException
 	 */
-	public List<PessoaPerfilD> listarPerfilD(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
+	public List<PerfilD> listarPerfilD(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
 		ArrayOfPessoaPerfilD result = infoconv.consultarCPFSoap.consultarCPFPD(listaCPFs, CPF_CONSULTANTE);
 		verificarErros(result.getPessoaPerfilD().get(0));
-		return result.getPessoaPerfilD();
+		List<PerfilD> lista = new ArrayList<PerfilD>();
+		for (PessoaPerfilD p : result.getPessoaPerfilD()) {
+			lista.add(new PerfilD(p));
+		}
+		
+		return lista;
 	}
 	
 	/**

@@ -23,6 +23,9 @@ public class Perfil2 extends Perfil1 {
 	@ApiModelProperty(value = "Ano do óbito no formato AAAA.", example = "2013")
     protected String anoObito;
 	
+	public Perfil2() {
+	}
+	
 	public Perfil2(PessoaPerfil2 pf) {
 		this.cpf = pf.getCPF();
 		this.nome = pf.getNome();
