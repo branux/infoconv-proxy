@@ -6,14 +6,13 @@ import javax.inject.Inject;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.Response;
 
 import br.gov.serpro.infoconv.proxy.businesscontroller.ConsultaCNPJBC;
-import br.gov.serpro.infoconv.ws.cnpj.CNPJPerfil1;
-import br.gov.serpro.infoconv.ws.cnpj.CNPJPerfil2;
+import br.gov.serpro.infoconv.proxy.rest.dto.cnpj.Perfil1CNPJ;
+import br.gov.serpro.infoconv.proxy.rest.dto.cnpj.Perfil2CNPJ;
+import br.gov.serpro.infoconv.proxy.rest.dto.cnpj.Perfil3CNPJ;
 import br.gov.serpro.infoconv.ws.cnpj.CNPJPerfil3;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -42,10 +41,10 @@ public class CnpjResource {
 	@GET
 	@Produces("application/json; charset=UTF-8")
 	@Path("perfil1")
-	public List<CNPJPerfil1> obterListaPerfil1(
+	public List<Perfil1CNPJ> obterListaPerfil1(
 			@ApiParam(value="Lista de CNPJ's. Apenas números e separados por ponto e vírgula.")
 			@NotNull @QueryParam("listaCNPJ") String lista) throws Exception {
-		List<CNPJPerfil1> resultado = cnpjBC.listarPerfil1(lista);
+		List<Perfil1CNPJ> resultado = cnpjBC.listarPerfil1(lista);
 		return resultado;
 	}
 	
@@ -59,10 +58,10 @@ public class CnpjResource {
 	@GET
 	@Produces("application/json; charset=UTF-8")
 	@Path("perfil2")
-	public List<CNPJPerfil2> obterListaPerfil2(
+	public List<Perfil2CNPJ> obterListaPerfil2(
 			@ApiParam(value="Lista de CNPJ's. Apenas números e separados por ponto e vírgula.")
 			@NotNull @QueryParam("listaCNPJ") String lista) throws Exception {
-		List<CNPJPerfil2> resultado = cnpjBC.listarPerfil2(lista);
+		List<Perfil2CNPJ> resultado = cnpjBC.listarPerfil2(lista);
 		return resultado;
 	}
 	
@@ -76,10 +75,10 @@ public class CnpjResource {
 	@GET
 	@Produces("application/json; charset=UTF-8")
 	@Path("perfil3")
-	public List<CNPJPerfil3> obterListaPerfil3(
+	public List<Perfil3CNPJ> obterListaPerfil3(
 			@ApiParam(value="Lista de CNPJ's. Apenas números e separados por ponto e vírgula.")
 			@NotNull @QueryParam("listaCNPJ") String lista) throws Exception {
-		List<CNPJPerfil3> resultado = cnpjBC.listarPerfil3(lista);
+		List<Perfil3CNPJ> resultado = cnpjBC.listarPerfil3(lista);
 		return resultado;
 	}
 		

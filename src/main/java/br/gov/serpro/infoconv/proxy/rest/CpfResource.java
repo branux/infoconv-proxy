@@ -58,7 +58,7 @@ public class CpfResource {
 			@ApiResponse(code = 500, message = "Instabilidade nos servidores do infoconv") })
 	@GET
 	@Produces("application/json; charset=UTF-8")
-//	@Path("perfil1A")
+	@Path("perfil1A")
 	public List<PessoaPerfil1A> obterListaPerfil1A(
 			@ApiParam(value = CpfResource.LITA_CPF_PARAM_INFO) @QueryParam("listaCPF") String lista)
 			throws Exception {

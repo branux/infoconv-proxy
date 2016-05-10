@@ -13,6 +13,9 @@ import br.gov.serpro.infoconv.proxy.exception.CpfNaoEncontradoException;
 import br.gov.serpro.infoconv.proxy.exception.DadosInvalidosException;
 import br.gov.serpro.infoconv.proxy.exception.InfraException;
 import br.gov.serpro.infoconv.proxy.exception.PerfilInvalidoException;
+import br.gov.serpro.infoconv.proxy.rest.dto.cnpj.Perfil1CNPJ;
+import br.gov.serpro.infoconv.proxy.rest.dto.cnpj.Perfil2CNPJ;
+import br.gov.serpro.infoconv.proxy.rest.dto.cnpj.Perfil3CNPJ;
 import br.gov.serpro.infoconv.proxy.util.InfoconvConfig;
 import br.gov.serpro.infoconv.ws.cnpj.ArrayOfCNPJPerfil1;
 import br.gov.serpro.infoconv.ws.cnpj.ArrayOfCNPJPerfil2;
@@ -156,10 +159,14 @@ public class ConsultaCNPJBC {
 	 * @throws DadosInvalidosException
 	 * @throws InfraException
 	 */
-	public List<CNPJPerfil1> listarPerfil1(String listaCNPJs) throws AcessoNegadoException, CNPJNaoEncontradoException, DadosInvalidosException, InfraException{
+	public List<Perfil1CNPJ> listarPerfil1(String listaCNPJs) throws AcessoNegadoException, CNPJNaoEncontradoException, DadosInvalidosException, InfraException{
 		ArrayOfCNPJPerfil1 result = infoconv.consultarCNPJSoap.consultarCNPJP1(listaCNPJs, CPF_CONSULTANTE);
 		verificarErros(result.getCNPJPerfil1().get(0));
-		return result.getCNPJPerfil1();
+		List<Perfil1CNPJ> lista = new ArrayList<Perfil1CNPJ>();
+		for (CNPJPerfil1 perfil1 : result.getCNPJPerfil1()) {
+			lista.add(new Perfil1CNPJ(perfil1));
+		}		
+		return lista;
 	}
 	
 	/**
@@ -172,10 +179,14 @@ public class ConsultaCNPJBC {
 	 * @throws DadosInvalidosException
 	 * @throws InfraException
 	 */
-	public List<CNPJPerfil2> listarPerfil2(String listaCNPJs) throws AcessoNegadoException, CNPJNaoEncontradoException, DadosInvalidosException, InfraException{
+	public List<Perfil2CNPJ> listarPerfil2(String listaCNPJs) throws AcessoNegadoException, CNPJNaoEncontradoException, DadosInvalidosException, InfraException{
 		ArrayOfCNPJPerfil2 result = infoconv.consultarCNPJSoap.consultarCNPJP2(listaCNPJs, CPF_CONSULTANTE);
 		verificarErros(result.getCNPJPerfil2().get(0));
-		return result.getCNPJPerfil2();
+		List<Perfil2CNPJ> lista = new ArrayList<Perfil2CNPJ>();
+		for (CNPJPerfil2 perfil1 : result.getCNPJPerfil2()) {
+			lista.add(new Perfil2CNPJ(perfil1));
+		}		
+		return lista;
 	}
 	
 	/**
@@ -188,10 +199,14 @@ public class ConsultaCNPJBC {
 	 * @throws DadosInvalidosException
 	 * @throws InfraException
 	 */
-	public List<CNPJPerfil3> listarPerfil3(String listaCNPJs) throws AcessoNegadoException, CNPJNaoEncontradoException, DadosInvalidosException, InfraException{
+	public List<Perfil3CNPJ> listarPerfil3(String listaCNPJs) throws AcessoNegadoException, CNPJNaoEncontradoException, DadosInvalidosException, InfraException{
 		ArrayOfCNPJPerfil3 result = infoconv.consultarCNPJSoap.consultarCNPJP3(listaCNPJs, CPF_CONSULTANTE);
 		verificarErros(result.getCNPJPerfil3().get(0));
-		return result.getCNPJPerfil3();
+		List<Perfil3CNPJ> lista = new ArrayList<Perfil3CNPJ>();
+		for (CNPJPerfil3 perfil1 : result.getCNPJPerfil3()) {
+			lista.add(new Perfil3CNPJ(perfil1));
+		}		
+		return lista;
 	}
 
 }

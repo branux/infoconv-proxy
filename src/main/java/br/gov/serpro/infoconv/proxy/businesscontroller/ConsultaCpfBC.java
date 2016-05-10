@@ -66,8 +66,7 @@ public class ConsultaCpfBC {
 		List<Perfil1> lista = new ArrayList<Perfil1>();
 		for (PessoaPerfil1 perfil1 : result.getPessoaPerfil1()) {
 			lista.add(new Perfil1(perfil1));
-		}
-		
+		}		
 		return lista;
 	}
 	
