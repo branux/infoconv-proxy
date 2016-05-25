@@ -61,7 +61,7 @@ public class ConsultaCpfBC {
 	 */
 	public List<Perfil1> listarPerfil1(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
 		ArrayOfPessoaPerfil1 result = infoconv.consultarCPFSoap.consultarCPFP1(listaCPFs, CPF_CONSULTANTE);
-		verificarErros(result.getPessoaPerfil1().get(0));
+		verificarErros(result.getPessoaPerfil1());
 		
 		List<Perfil1> lista = new ArrayList<Perfil1>();
 		for (PessoaPerfil1 perfil1 : result.getPessoaPerfil1()) {
@@ -82,7 +82,7 @@ public class ConsultaCpfBC {
 	 */
 	public List<PessoaPerfil1A> listarPerfil1A(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
 		ArrayOfPessoaPerfil1A result = infoconv.consultarCPFSoap.consultarCPFP1A(listaCPFs, CPF_CONSULTANTE);
-		verificarErros(result.getPessoaPerfil1A().get(0));
+		verificarErros(result.getPessoaPerfil1A());
 		return result.getPessoaPerfil1A();
 	}
 	
@@ -98,7 +98,7 @@ public class ConsultaCpfBC {
 	 */
 	public List<Perfil2> listarPerfil2(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
 		ArrayOfPessoaPerfil2 result = infoconv.consultarCPFSoap.consultarCPFP2(listaCPFs, CPF_CONSULTANTE);
-		verificarErros(result.getPessoaPerfil2().get(0));
+		verificarErros(result.getPessoaPerfil2());
 		
 		List<Perfil2> lista = new ArrayList<Perfil2>();
 		for (PessoaPerfil2 p : result.getPessoaPerfil2()) {
@@ -120,7 +120,7 @@ public class ConsultaCpfBC {
 	 */
 	public List<PessoaPerfil2A> listarPerfil2A(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
 		ArrayOfPessoaPerfil2A result = infoconv.consultarCPFSoap.consultarCPFP2A(listaCPFs, CPF_CONSULTANTE);
-		verificarErros(result.getPessoaPerfil2A().get(0));
+		verificarErros(result.getPessoaPerfil2A());
 		return result.getPessoaPerfil2A();
 	}
 	
@@ -136,7 +136,7 @@ public class ConsultaCpfBC {
 	 */
 	public List<Perfil3> listarPerfil3(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
 		ArrayOfPessoaPerfil3 result = infoconv.consultarCPFSoap.consultarCPFP3(listaCPFs, CPF_CONSULTANTE);
-		verificarErros(result.getPessoaPerfil3().get(0));
+		verificarErros(result.getPessoaPerfil3());
 		List<Perfil3> lista = new ArrayList<Perfil3>();
 		for (PessoaPerfil3 p : result.getPessoaPerfil3()) {
 			lista.add(new Perfil3(p));
@@ -157,7 +157,7 @@ public class ConsultaCpfBC {
 	 */
 	public List<PessoaPerfil3A> listarPerfil3A(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
 		ArrayOfPessoaPerfil3A result = infoconv.consultarCPFSoap.consultarCPFP3A(listaCPFs, CPF_CONSULTANTE);
-		verificarErros(result.getPessoaPerfil3A().get(0));
+		verificarErros(result.getPessoaPerfil3A());
 		return result.getPessoaPerfil3A();
 	}
 	
@@ -173,7 +173,7 @@ public class ConsultaCpfBC {
 	 */
 	public List<PerfilD> listarPerfilD(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
 		ArrayOfPessoaPerfilD result = infoconv.consultarCPFSoap.consultarCPFPD(listaCPFs, CPF_CONSULTANTE);
-		verificarErros(result.getPessoaPerfilD().get(0));
+		verificarErros(result.getPessoaPerfilD());
 		List<PerfilD> lista = new ArrayList<PerfilD>();
 		for (PessoaPerfilD p : result.getPessoaPerfilD()) {
 			lista.add(new PerfilD(p));
@@ -194,7 +194,7 @@ public class ConsultaCpfBC {
 	 */
 	public List<PessoaPerfilD2> listarPerfilD2(String listaCPFs) throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException{
 		ArrayOfPessoaPerfilD2 result = infoconv.consultarCPFSoap.consultarCPFPD2(listaCPFs, CPF_CONSULTANTE);
-		verificarErros(result.getPessoaPerfilD2().get(0));
+		verificarErros(result.getPessoaPerfilD2());
 		return result.getPessoaPerfilD2();
 	}
 	
@@ -231,16 +231,21 @@ public class ConsultaCpfBC {
 	 * @throws DadosInvalidosException
 	 * @throws InfraException
 	 */
-	private void verificarErros(final Object retorno)
+	private void verificarErros(final List<?> retorno)
 			throws AcessoNegadoException, CpfNaoEncontradoException, DadosInvalidosException, InfraException {
+		
+		/* Se retorna muitos elementos não podemos lançar exceção */
+		if(retorno.size()>0) return;
+		
 		try {
-			Class<?> c = retorno.getClass();
+			Object primeiro = retorno.get(0);			
+			Class<?> c = primeiro.getClass();
 			Field erroField = c.getDeclaredField("erro");
 			erroField.setAccessible(true);
-			String erroMsg = (String) erroField.get(retorno);
+			String erroMsg = (String) erroField.get(primeiro);
 			if (erroMsg.indexOf("ACS - Erro") > -1) {
 				throw new AcessoNegadoException(erroMsg);
-			} else if (erroMsg.indexOf("CPF - Erro 04") > -1) {
+			} else if (retorno.size()==1 && erroMsg.indexOf("CPF - Erro 04") > -1) {
 				throw new CpfNaoEncontradoException(erroMsg);
 			} else if (erroMsg.indexOf("CPF - Erro 02") > -1 || erroMsg.indexOf("CPF - Erro 06") > -1
 					|| erroMsg.indexOf("CPF - Erro 08") > -1) {
@@ -306,7 +311,7 @@ public class ConsultaCpfBC {
 			throw new PerfilInvalidoException();
 		}
 		
-		verificarErros(lista.get(0));
+		verificarErros(lista);
 		
 		return lista;
 	}
