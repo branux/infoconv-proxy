@@ -1,8 +1,10 @@
 # infoconv-proxy
 
-Este projeto é um exemplo de como criar um Servidor para consumir o webservice do InfoConv e transforma-lo em uma API REST.
+Este projeto é um **exemplo** de como criar um Servidor Java/Web, em seu domínio local, para consumir o webservice do InfoConv e disponibiliza-lo como uma API REST para os sistemas internos do conveniado. 
 
-Esta abordagem permite que diversas aplicações de uma organização possam compartilhar este acesso de forma centralizada.  Cada organização poderá implementar seus critérios de authentição e controle de consumo.
+**Obs.: infoconv-proxy não é um produto. Este código serve de exemplo de como iniciar seu projeto.**
+
+Esta abordagem permite que diversas aplicações de uma organização possam compartilhar este acesso de forma centralizada.  Cada organização deverá implementar seus critérios de authentição e controle de consumo como lhes melhor convier.
 
 Caso você queira consumir diretamente o webservice sem a conversão para REST você pode utilizar o projeto [infoconv-ws](https://github.com/infoconv/infoconv-ws) ou testar seu certificado usando o SOAP-UI com o nosso [exemplo de configuração](https://github.com/infoconv/soapui).
 
